@@ -11,7 +11,8 @@
 				{ id : 1 , name : '春天' ,done : true},
 				{ id : 2 , name : '长裙' ,done : false},
 				{ id : 3 , name : '樱花' ,done : true}
-			]
+			],
+			todoName :''
 		},
 		methods :{
 			// 2.删除任务
@@ -20,8 +21,18 @@
 				// 方法一:过滤
 				this.list = this.list.filter(item => item.id != id)
 				// console.log(this.list);	
-			}
+			},
 			// 3.添加任务
+			addTodo(){
+				const id = this.list.length == 0 ? 1 : this.list[this.list.length-1].id+1
+				this.list.push({
+					id : id,
+					name : this.todoName ,
+					done : false 
+				})
+				this.todoName = ''
+				
+			}
 			// 4.修改任务
 			// 5.隐藏底部
 		}
