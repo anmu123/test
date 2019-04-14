@@ -8,11 +8,19 @@
 		// 1.准备数据,渲染页面
 		data : {
 			list:[
-				{ id : 1 , name : '春天' ,done : true},
-				{ id : 2 , name : '长裙' ,done : false},
-				{ id : 3 , name : '樱花' ,done : true}
+				// { id : 1 , name : '春天' ,done : true},
+				// { id : 2 , name : '长裙' ,done : false},
+				// { id : 3 , name : '樱花' ,done : true}
 			],
-			todoName :''
+			todoName :'',
+			editId  : -1,
+			// computed
+		},
+		computed : {
+			isShow(){
+				console.log('cx');
+				return  this.list.length > 0
+			}
 		},
 		methods :{
 			// 2.删除任务
@@ -32,9 +40,19 @@
 				})
 				this.todoName = ''
 				
-			}
+			},
 			// 4.修改任务
+			ShowEdit(id){
+				console.log(id);
+				this.editId = id
+				
+			},
+			hideEdit(){
+				this.editId = -1
+			}
+
 			// 5.隐藏底部
+
 		}
 
 
